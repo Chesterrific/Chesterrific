@@ -7,86 +7,156 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             #map{
-                height: 400px;
+                height: 800px;
                 width: 100%;
             }
         </style>
     </head>
     <body>
-        <h1>My Goole Map</h1>
-        <div id="map"></div>
+        <h1>My Restaurant Locator</h1>
+        <div id="map"></div> <br>
+        
+        <div id=""></div>
         <script>
+
+            var map;
+            var infoWindow;
+            var keyword;
+            var currentLoc;
+            var ZOOM = 10;
+
             function initMap() {
 
-                //Array of markers
-                var markers = [
-                    {
-                        coords: {lat: 37.5297, lng: -122.0402},
-                        content: '<h1>Newark, CA</h1>'
-                    }
-                ]
-
-                //Map view options
-                var options = {
-                    zoom: 13,
-                    center: {lat: 37.5297, lng: -122.0402}
-                }
-
-                //New map
-                var map = new google.maps.Map(document.getElementById('map'), options);
-
-                //Listen for click on map
-                google.maps.event.addListener(map, 'click', function (event) {
-                    //Adds marker to map
-                    addMarker({coords: event.latLng});
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: -34.397, lng: 150.644},
+                    zoom: 6
                 });
 
-                //Loop through markers
-                for (var i = 0; i < markers.length; i++) {
-                    //Add markers
-                    addMarker(markers[i]);
-                }
+                infoWindow = new google.maps.InfoWindow;
 
-                /*
-                 //Add marker
-                 var marker = new google.maps.Marker({
-                 position:{lat: 37.5297, lng: -122.0402},
-                 map:map
-                 });
-                 
-                 //Adding info window to marker
-                 var infoWindow = new google.maps.InfoWindow({
-                 content: '<h1>Newark, CA</h1>' 
-                 });
-                 
-                 //Adding an onclick listener to marker to open info window
-                 marker.addListener('click', function(){
-                 infoWindow.open(map, marker);
-                 });
-                 */
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        var pos = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
 
-                //Add marker function
-                function addMarker(props) {
-                    var marker = new google.maps.Marker({
-                        position: props.coords,
-                        map: map
+                        infoWindow.setPosition(pos);
+                        infoWindow.setContent('Location found.');
+                        infoWindow.open(map);
+                        map.setCenter(pos);
+                        map.setZoom(ZOOM);
+                    }, function () {
+                        handleLocationError(true, infoWindow, map.getCenter());
                     });
+                } else {
+                    // Browser doesn't support Geolocation
+                    handleLocationError(false, infoWindow, map.getCenter());
+                }
+            }
 
-                    if (props.content) {
-                        //Adding info window to marker
-                        var infoWindow = new google.maps.InfoWindow({
-                            content: props.content
-                        });
+            function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+                infoWindow.setPosition(pos);
+                infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+                infoWindow.open(map);
+            }
 
-                        //Adding an onclick listener to marker to open info window
-                        marker.addListener('click', function () {
-                            infoWindow.open(map, marker);
-                        });
+            function findRestaurants(){
+                var location = find
+            }
+            
+            function callback(results, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    for (var i = 0; i < results.length; i++) {
+                        createMarker(results[i]);
                     }
                 }
             }
+
+            function createMarker(place) {
+                var placeLoc = place.geometry.location;
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: place.geometry.location
+                });
+
+                google.maps.event.addListener(marker, 'click', function () {
+                    infowindow.setContent(place.name);
+                    infowindow.open(map, this);
+                });
+            }
+
+
+            /*
+             var map;
+             var infoWindow;
+             var markers = [];
+             
+             function initMap() {
+             
+             //Array of markers
+             markers = [
+             {
+             coords: {lat: 37.5297, lng: -122.0402},
+             content: '<h1>Newark, CA</h1>'
+             }
+             ]
+             
+             //Map view options
+             var options = {
+             zoom: 13,
+             center: {lat: 37.5297, lng: -122.0402} //Current location: Newark
+             }
+             
+             //New map
+             map = new google.maps.Map(document.getElementById('map'), options);
+             
+             //Listen for click on map
+             google.maps.event.addListener(map, 'click', function (event) {
+             //Adds marker to map on click
+             addMarker({coords: event.latLng});
+             });
+             
+             //Loop through initial given markers
+             for (var i = 0; i < markers.length; i++) {
+             //Add markers
+             addMarker(markers[i]);
+             }
+             }
+             
+             function callback(results, status) {
+             if (status === google.maps.places.PlacesServiceStatus.OK) {
+             for (var i = 0; i < results.length; i++) {
+             addMarker(results[i]);
+             }
+             }
+             }
+             
+             
+             //Add marker function
+             function addMarker(props) {
+             var marker = new google.maps.Marker({
+             position: props.coords,
+             map: map
+             });
+             
+             if (props.content) {
+             //Adding info window to marker
+             infoWindow = new google.maps.InfoWindow({
+             content: props.content
+             });
+             
+             //Adding an onclick listener to marker to open info window
+             marker.addListener('click', function () {
+             infoWindow.open(map, marker);
+             });
+             }
+             }
+             */
         </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX2JrVwMwYclNCrBe94WfZs_opvgcvhjc&callback=initMap"
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX2JrVwMwYclNCrBe94WfZs_opvgcvhjc&callback=initMap&libraries=places"
         async defer></script>
     </body>
 </html>

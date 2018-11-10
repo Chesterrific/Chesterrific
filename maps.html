@@ -14,26 +14,72 @@
     </head>
     <body>
         <h1>My Restaurant Locator</h1>
-        <div id="map"></div> <br>
-        
-        <div id=""></div>
-        <script>
+        <div id="map"></div><br>
 
-            var map;
-            var infoWindow;
-            var keyword;
-            var currentLoc;
+        <div id="output"></div>
+        <input type="text" id="address" value="New York, NY"><br>
+        <input id="submit" type="button" value="Use Custom Location" onclick="geocodeAddress()">
+        <input id="submit2" type="button" value="Use Current Location" onclick="geolocateAddress()">
+        <script>
+            var map,
+                    geocoder,
+                    infoWindow;
+
+            var markers = [];
+
+            //Constants
             var ZOOM = 10;
 
             function initMap() {
-
                 map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat: -34.397, lng: 150.644},
-                    zoom: 6
+                    center: {lat: 39.8283, lng: -98.5795},
+                    zoom: 5
                 });
 
-                infoWindow = new google.maps.InfoWindow;
+                //Adds event listener to map that records where the click was and transforms it into latLng coordinates
+                google.maps.event.addListener(map, 'click', function (event) {
+                    //console.log(event.latLng);
+                    reverseGeocode(event.latLng);
+                });
 
+                geocoder = new google.maps.Geocoder();
+                infoWindow = new google.maps.InfoWindow();
+            }
+
+            //Find location on map based on address' value using Google's Geocoding API
+            function geocodeAddress() {
+                deleteMarkers();
+                var address = document.getElementById('address').value;
+                geocoder.geocode({'address': address}, function (results, status) {
+                    if (status === 'OK') {
+                        map.setCenter(results[0].geometry.location);
+                        map.setZoom(ZOOM);
+                        addMarker(results[0]);
+                    } else {
+                        window.alert('Geocode was not successful for the following reason: ' + status);
+                    }
+                });
+            }
+
+            //Find location info based on given coordinates
+            function reverseGeocode(latLng) {
+                geocoder.geocode({'location': latLng}, function (results, status) {
+                    if (status === 'OK') {
+                        if (results[0]) {
+                            console.log(results[0].formatted_address);
+                            addMarker(results[0]);
+                        } else {
+                            window.alert('No results found');
+                        }
+                    } else {
+                        window.alert('Geocoder failed due to: ' + status);
+                    }
+                });
+            }
+
+            //Find user's current location
+            function geolocateAddress() {
+                deleteMarkers();
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function (position) {
                         var pos = {
@@ -41,20 +87,19 @@
                             lng: position.coords.longitude
                         };
 
-                        infoWindow.setPosition(pos);
-                        infoWindow.setContent('Location found.');
-                        infoWindow.open(map);
                         map.setCenter(pos);
                         map.setZoom(ZOOM);
+                        reverseGeocode(pos);
+
                     }, function () {
                         handleLocationError(true, infoWindow, map.getCenter());
                     });
                 } else {
-                    // Browser doesn't support Geolocation
                     handleLocationError(false, infoWindow, map.getCenter());
                 }
             }
 
+            //Error handling for geolocation
             function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                 infoWindow.setPosition(pos);
                 infoWindow.setContent(browserHasGeolocation ?
@@ -63,98 +108,46 @@
                 infoWindow.open(map);
             }
 
-            function findRestaurants(){
-                var location = find
-            }
-            
-            function callback(results, status) {
-                if (status === google.maps.places.PlacesServiceStatus.OK) {
-                    for (var i = 0; i < results.length; i++) {
-                        createMarker(results[i]);
-                    }
-                }
-            }
 
-            function createMarker(place) {
-                var placeLoc = place.geometry.location;
+            //Adds a marker to the markers array
+            function addMarker(location) {
                 var marker = new google.maps.Marker({
-                    map: map,
-                    position: place.geometry.location
+                    position: location.geometry.location,
+                    map: map
                 });
 
                 google.maps.event.addListener(marker, 'click', function () {
-                    infowindow.setContent(place.name);
-                    infowindow.open(map, this);
+                    infoWindow.setContent(location.formatted_address);
+                    infoWindow.open(map, this);
                 });
+
+                markers.push(marker);
+                showMarkers();
             }
 
+            //Sets the markers' map setting to the given map, displaying them on said map
+            function setMaps(map) { //local map variable
+                for (var i = 0; i < markers.length; i++) {
+                    markers[i].setMap(map);
+                }
+            }
 
-            /*
-             var map;
-             var infoWindow;
-             var markers = [];
-             
-             function initMap() {
-             
-             //Array of markers
-             markers = [
-             {
-             coords: {lat: 37.5297, lng: -122.0402},
-             content: '<h1>Newark, CA</h1>'
-             }
-             ]
-             
-             //Map view options
-             var options = {
-             zoom: 13,
-             center: {lat: 37.5297, lng: -122.0402} //Current location: Newark
-             }
-             
-             //New map
-             map = new google.maps.Map(document.getElementById('map'), options);
-             
-             //Listen for click on map
-             google.maps.event.addListener(map, 'click', function (event) {
-             //Adds marker to map on click
-             addMarker({coords: event.latLng});
-             });
-             
-             //Loop through initial given markers
-             for (var i = 0; i < markers.length; i++) {
-             //Add markers
-             addMarker(markers[i]);
-             }
-             }
-             
-             function callback(results, status) {
-             if (status === google.maps.places.PlacesServiceStatus.OK) {
-             for (var i = 0; i < results.length; i++) {
-             addMarker(results[i]);
-             }
-             }
-             }
-             
-             
-             //Add marker function
-             function addMarker(props) {
-             var marker = new google.maps.Marker({
-             position: props.coords,
-             map: map
-             });
-             
-             if (props.content) {
-             //Adding info window to marker
-             infoWindow = new google.maps.InfoWindow({
-             content: props.content
-             });
-             
-             //Adding an onclick listener to marker to open info window
-             marker.addListener('click', function () {
-             infoWindow.open(map, marker);
-             });
-             }
-             }
-             */
+            //Sets the markers' map setting to null, taking them off said map
+            function clearMarkers() {
+                setMaps(null);
+            }
+
+            //Passes global map variable to setMaps(), showing markers
+            function showMarkers() {
+                setMaps(map);
+            }
+
+            //Clears map and resets markers array
+            function deleteMarkers() {
+                clearMarkers();
+                markers = [];
+            }
+
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX2JrVwMwYclNCrBe94WfZs_opvgcvhjc&callback=initMap&libraries=places"
         async defer></script>

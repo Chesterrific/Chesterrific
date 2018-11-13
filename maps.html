@@ -2,154 +2,81 @@
 
 <html>
     <head>
-        <title>My Google Map</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name='viewport' content="width=device-width">
+        <meta name="description" content="Chester Guinto's personal website">
+        <meta name="author" content="Chester Guinto">
+        <title>Chester's Website | Restaurant Locator</title>
+        <link rel='stylesheet' href='./css/style.css'>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <style>
             #map{
                 height: 800px;
-                width: 100%;
+                width: 70%;
+                margin-left: 50px;
+            }
+            #mySideNav{
+                height: 100%; /* 100% Full-height */
+                width: 0; /* 0 width - change this with JavaScript */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Stay on top */
+                top: 0;
+                right: 0; /* Comes in from the right*/
+                background-color: #111; /* Black*/
+                overflow: auto;
+                padding-top: 60px; /* Place content 60px from the top */
+                transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+                color: #ffffff;
+            }
+            .closebtn{
+                position: absolute;
+                top: 10px;
+                color: #ffffff;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-size: 50px;
+                padding-left: 10px;
+            }
+            .closebtn:hover{
+                text-decoration: none;
+            }
+            .attributes{
+                display: block;  
+                margin: 10px;
+            }
+            .entry{
+                position: absolute;
+                left: 200px;
             }
         </style>
     </head>
     <body>
         <h1>My Restaurant Locator</h1>
         <div id="map"></div><br>
-
-        <div id="output"></div>
+        <div id="mySideNav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><br>
+            <span class="attributes">Genre/Cuisine/Type<input type="text" class="entry" placeholder="Chinese, Mexican, Pizza, etc"></span>
+            <span class="attributes">Distance<input type="text" class="entry"></span>
+            <span class="attributes">Max Price Range 
+                <select class="entry">
+                    <option value="4">4 (No filter on prices)</option>
+                    <option value="3">3 </option>
+                    <option value="2">2 (Average)</option>
+                    <option value="1">1 </option>
+                    <option value="0">0 (Inexpensive)</option>
+                </select>
+            </span>            
+        </div>
         <input type="text" id="address" value="New York, NY"><br>
-        <input id="submit" type="button" value="Use Custom Location" onclick="geocodeAddress()">
+        <!-- <input id="submit" type="button" value="Use Custom Location" onclick="geocodeAddress(); openNav();"> -->
+        <input id="submit" type="button" value="Use Custom Location" onclick="openNav();">
         <input id="submit2" type="button" value="Use Current Location" onclick="geolocateAddress()">
-        <script>
-            var map,
-                    geocoder,
-                    infoWindow;
 
-            var markers = [];
-
-            //Constants
-            var ZOOM = 10;
-
-            function initMap() {
-                map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat: 39.8283, lng: -98.5795},
-                    zoom: 5
-                });
-
-                //Adds event listener to map that records where the click was and transforms it into latLng coordinates
-                google.maps.event.addListener(map, 'click', function (event) {
-                    //console.log(event.latLng);
-                    reverseGeocode(event.latLng);
-                });
-
-                geocoder = new google.maps.Geocoder();
-                infoWindow = new google.maps.InfoWindow();
-            }
-
-            //Find location on map based on address' value using Google's Geocoding API
-            function geocodeAddress() {
-                deleteMarkers();
-                var address = document.getElementById('address').value;
-                geocoder.geocode({'address': address}, function (results, status) {
-                    if (status === 'OK') {
-                        map.setCenter(results[0].geometry.location);
-                        map.setZoom(ZOOM);
-                        addMarker(results[0]);
-                    } else {
-                        window.alert('Geocode was not successful for the following reason: ' + status);
-                    }
-                });
-            }
-
-            //Find location info based on given coordinates
-            function reverseGeocode(latLng) {
-                geocoder.geocode({'location': latLng}, function (results, status) {
-                    if (status === 'OK') {
-                        if (results[0]) {
-                            console.log(results[0].formatted_address);
-                            addMarker(results[0]);
-                        } else {
-                            window.alert('No results found');
-                        }
-                    } else {
-                        window.alert('Geocoder failed due to: ' + status);
-                    }
-                });
-            }
-
-            //Find user's current location
-            function geolocateAddress() {
-                deleteMarkers();
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function (position) {
-                        var pos = {
-                            lat: position.coords.latitude,
-                            lng: position.coords.longitude
-                        };
-
-                        map.setCenter(pos);
-                        map.setZoom(ZOOM);
-                        reverseGeocode(pos);
-
-                    }, function () {
-                        handleLocationError(true, infoWindow, map.getCenter());
-                    });
-                } else {
-                    handleLocationError(false, infoWindow, map.getCenter());
-                }
-            }
-
-            //Error handling for geolocation
-            function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-                infoWindow.setPosition(pos);
-                infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
-                infoWindow.open(map);
-            }
-
-
-            //Adds a marker to the markers array
-            function addMarker(location) {
-                var marker = new google.maps.Marker({
-                    position: location.geometry.location,
-                    map: map
-                });
-
-                google.maps.event.addListener(marker, 'click', function () {
-                    infoWindow.setContent(location.formatted_address);
-                    infoWindow.open(map, this);
-                });
-
-                markers.push(marker);
-                showMarkers();
-            }
-
-            //Sets the markers' map setting to the given map, displaying them on said map
-            function setMaps(map) { //local map variable
-                for (var i = 0; i < markers.length; i++) {
-                    markers[i].setMap(map);
-                }
-            }
-
-            //Sets the markers' map setting to null, taking them off said map
-            function clearMarkers() {
-                setMaps(null);
-            }
-
-            //Passes global map variable to setMaps(), showing markers
-            function showMarkers() {
-                setMaps(map);
-            }
-
-            //Clears map and resets markers array
-            function deleteMarkers() {
-                clearMarkers();
-                markers = [];
-            }
-
-        </script>
+        <script src="js/main.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX2JrVwMwYclNCrBe94WfZs_opvgcvhjc&callback=initMap&libraries=places"
         async defer></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     </body>
 </html>

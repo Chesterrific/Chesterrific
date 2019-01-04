@@ -19,7 +19,7 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li class='current'><a href="about.html">About</a></li>
-                        <li><a href="projects.html">Projects</a></li>
+                        <li><div style="cursor: pointer" onclick="openProjects()">PROJECTS</div></li>
                     </ul>
                 </nav>
             </div>
@@ -28,6 +28,10 @@
         <div id="rightnav" class="sidenav">
             <object height="100%" width="95%" data="docs/Resume.pdf"></object>
             <a href="javascript:void(0)" id="closebtn" onclick="closeNav()">&times;</a>
+        </div>
+        
+        <div id="projects">
+            <a href="javascript:void(0)" id="closebtn" onclick="closeProjects()">&times;</a>
         </div>
         
         <section id='main-about'>
@@ -61,7 +65,7 @@
         </section>
 
         <footer>
-            <p>Chester Guinto 2018</p>
+            <p>Chester Guinto 2019</p>
         </footer>
 
         <script src="js/main.js"></script>

@@ -19,7 +19,7 @@
                     <ul>
                         <li class='current'><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
-                        <li><a href="projects.html">Projects</a></li>
+                        <li><div style="cursor: pointer" onclick="openProjects()">PROJECTS</div></li>
                     </ul>
                 </nav>
             </div>
@@ -41,13 +41,6 @@
             </div>
         </section>
 
-        <!--<section id="showcase">
-            <div class='container'>
-                <h1>Chester Guinto</h1>
-                <p>Easy Going, Enthusiastic, and a Hard Worker</p>
-            </div>
-        </section>
-        -->
         <section id='skills'>
             <div class='container'>
                 <h1>Skills</h1>
@@ -76,8 +69,18 @@
             </div>
         </section>
 
+        <div id="projects">
+            <a href="javascript:void(0)" id="closebtn" onclick="closeProjects()">&times;</a>
+            <h3>PROJECTS</h3>
+            <ul id="progList">
+                <li class="progItems"><a href="https://chesterrific.github.io/Restaurant-Locator/" target="_blank">Restaurant Locator</a></li>
+                <li class="progItems"><a href="https://github.com/Chesterrific/Boggle" target="_blank">Boggle</a></li>
+                <li class="progItems"><a href="https://github.com/Chesterrific/DiscordBot" target="_blank">Personal Discord Bot</a></li>                
+            </ul>
+        </div>
+        
         <footer>
-            <p>Chester Guinto 2018</p>
+            <p>Chester Guinto 2019</p>
         </footer>
 
         <script src="js/main.js"></script>

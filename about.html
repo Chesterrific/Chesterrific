@@ -2,102 +2,106 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name='viewport' content="width=device-width">
-    <meta name="description" content="Chester Guinto's personal website">
-    <meta name="author" content="Chester Guinto">
-    <title>Chester's Website | About Me</title>
-    <link rel='stylesheet' href='./css/style.css'>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name='viewport' content="width=device-width">
+  <meta name="description" content="Chester Guinto's personal website">
+  <meta name="author" content="Chester Guinto">
+  <title>Chester's Website | About Me</title>
+  <link rel='stylesheet' href='./css/style.css'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 
 <body>
-    <header>
-        <div class='container'>
-            <div id='branding'>
-                <h1><span class="highlight">About</span> Me</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li class='current'><a href="about.html">About</a></li>
-                    <li>
-                        <div style="cursor: pointer" onclick="openProjects()">PROJECTS</div>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <div id="rightnav" class="sidenav">
-        <object height="100%" width="95%" data="docs/Resume.pdf"></object>
-        <a href="javascript:void(0)" id="closebtn" onclick="closeNav()">&times;</a>
-    </div>
-
-    <div id="projects">
-        <a href="javascript:void(0)" id="closebtn" onclick="closeProjects()">&times;</a>
-        <h3>PROJECTS</h3>
-        <ul id="progList">
-            <li class="progItems"><a href="https://chesterrific.github.io/Restaurant-Locator/"
-                    target="_blank">Restaurant Locator</a></li>
-            <li class="progItems"><a href="https://github.com/Chesterrific/Boggle" target="_blank">Boggle</a></li>
-            <li class="progItems"><a href="https://github.com/Chesterrific/DiscordBot" target="_blank">Personal Discord
-                    Bot</a></li>
-            <li class="progItems"><a href="https://chesterrific.github.io/Tekken7/" target="_blank">Tekken 7 Frame Data
-                    (In progress)</a></li>
+  <header>
+    <div class='container'>
+      <div id='branding'>
+        <h1><span class="highlight">About</span> Me</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class='current'><a href="about.html">About</a></li>
+          <li>
+            <div style="cursor: pointer" onclick="openProjects()">PROJECTS</div>
+          </li>
         </ul>
+      </nav>
     </div>
+  </header>
 
-    <section id='main-about'>
-        <div class="container">
-            <article id='main-col'>
-                <p>
-                    My name is Chester Guinto, I'm an IT professional with Software and Web Development experience. I'm
-                    always looking for opportunities to level up and add to my skills!
-                </p>
-                <p>
-                    Currently, I'm an IT specialist for Rapid Displays, a company that works with various companies to
-                    create and develop in-store display advertisements that focus on using user interaction to draw
-                    attention and create interest in the product we're advertising. I'm in an incredibly unique postion
-                    where I'm able to handle both typical IT daily duties like software maintenance, as well as flex my 
-                    development background by working on projects for clients that desire a more modern type of display.
-                </p>
-                <p>
-                    Be it projects for outside clients, or creating solutions for my users, I'm always looking to use my
-                    experience to create solutions or find answers for problems that may come up!
-                </p>
-            </article>
-            <aside id='cinfo'>
-                <div class='dark'>
-                    <h3><span class="highlight">Contact</span> Info</h3>
-                    <div class="info">
-                        <span class="highlight">Phone #:</span> (510) 467-2169<br>
-                        <span class="highlight">Email:</span> chesterguinto@gmail.com<br>
-                        <span class="highlight">Github:</span> https://github.com/Chesterrific<br><br>
-                        <a href="https://www.linkedin.com/in/chesterguinto/" target="_blank">To My LinkedIn</a><br>
-                        <div style="position: relative; left: 92px; cursor: pointer;" onclick="openNav()">Open My Resume
-                        </div>
-                    </div>
-                </div>
-            </aside>
+  <div id="rightnav" class="sidenav">
+    <object height="100%" width="95%" data="docs/Resume.pdf"></object>
+    <a href="javascript:void(0)" id="closebtn" onclick="closeNav()">&times;</a>
+  </div>
+
+  <div id="projects">
+    <a href="javascript:void(0)" id="closebtn" onclick="closeProjects()">&times;</a>
+    <h3>PROJECTS</h3>
+    <ul id="progList">
+      <li class="progItems"><a href="https://chesterrific.github.io/Restaurant-Locator/" target="_blank">Restaurant
+          Locator</a></li>
+      <li class="progItems"><a href="https://github.com/Chesterrific/Boggle" target="_blank">Boggle</a></li>
+      <li class="progItems"><a href="https://github.com/Chesterrific/DiscordBot" target="_blank">Personal Discord
+          Bot</a></li>
+      <li class="progItems"><a href="https://chesterrific.github.io/Tekken7/" target="_blank">Tekken 7 Frame Data
+          (In progress)</a></li>
+      <li class="progItems"><a href="https://github.com/Chesterrific/Tactics-Game" target="_blank">Unity Tactics Style
+          Game (In progress)</a></li>
+      <li class="progItems"><a href="https://github.com/Chesterrific/Tower-Defense" target="_blank">Unity Tower Defense
+          Game (In progress)</a></li>
+    </ul>
+  </div>
+
+  <section id='main-about'>
+    <div class="container">
+      <article id='main-col'>
+        <p>
+          My name is Chester Guinto, I'm an IT professional with Software and Web Development experience. I'm
+          always looking for opportunities to level up and add to my skills!
+        </p>
+        <p>
+          Currently, I'm an IT specialist for Rapid Displays, a company that works with various companies to
+          create and develop in-store display advertisements that focus on using user interaction to draw
+          attention and create interest in the product we're advertising. I'm in an incredibly unique postion
+          where I'm able to handle both typical IT daily duties like software maintenance, as well as flex my
+          development background by working on projects for clients that desire a more modern type of display.
+        </p>
+        <p>
+          Be it projects for outside clients, or creating solutions for my users, I'm always looking to use my
+          experience to create solutions or find answers for problems that may come up!
+        </p>
+      </article>
+      <aside id='cinfo'>
+        <div class='dark'>
+          <h3><span class="highlight">Contact</span> Info</h3>
+          <div class="info">
+            <span class="highlight">Phone #:</span> (510) 467-2169<br>
+            <span class="highlight">Email:</span> chesterguinto@gmail.com<br>
+            <span class="highlight">Github:</span> https://github.com/Chesterrific<br><br>
+            <a href="https://www.linkedin.com/in/chesterguinto/" target="_blank">To My LinkedIn</a><br>
+            <div style="position: relative; left: 92px; cursor: pointer;" onclick="openNav()">Open My Resume
+            </div>
+          </div>
         </div>
-    </section>
+      </aside>
+    </div>
+  </section>
 
-    <footer>
-        <p>Chester Guinto 2020</p>
-    </footer>
+  <footer>
+    <p>Chester Guinto 2020</p>
+  </footer>
 
-    <script src="js/main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

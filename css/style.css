@@ -1,251 +1,42 @@
 /* 
     Author     : Chester Guinto
 */
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-    padding: 0;
-    background-color: #f4f4f4;
+/*General Page Styling*/
+
+body, html {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
 }
 
-/*Carousel Settings*/
-#topCarousel{
-    width: 100%;
-    height: 15%;
-    max-height: 700px;
-    overflow: hidden;
-    border-bottom: #FF0000 3px solid; 
+.parallax {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
-.carousel-item img{
-    object-fit: cover;
-    width: 100%;
+/*Showcase 1 Styling*/
+#showcase-1 {
+  color: white;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("../assests/img/showcase.jpg");
+  border-bottom: solid 3px #02219e;
+  font-size: 1.5em;
+  height: 100vh;
+  position: relative;
 }
 
-/*Global Items*/
-.container{
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+#quoteBody{
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 50%;
 }
 
-ul{
-    margin: 0;
-    padding: 0;
+#authorBody{
+  position: relative;
 }
 
-.dark{
-    padding: 15px;
-    background: #35424a;
-    color: #ffffff;
-}
-
-.centered{
-    margin-top: 50%;
-}
-/*----Image Picture Size Settings----*/
-.pics{
-    height: 100px;
-    width: 100px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-/*--------------------------*/
-
-/*Header Items*/
-header{
-    background-color: #35424a;
-    color: #ffffff;
-    padding-top: 30px;
-    min-height: 70px;
-    border-bottom: #FF0000 3px solid;  
-}
-
-header a{
-    color: #ffffff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 16px;
-}
-
-header li{
-    float: left;
-    display: inline;
-    padding: 0 20px 0 20px;
-}
-
-header #branding{
-    float: left;
-}
-
-header #branding h1{
-    margin-bottom: 20px;
-}
-
-header nav{
-    float: right;
-    margin-top: 10px;
-}
-
-header .highlight, header .current a{
-    color: #FF0000;
-    font-weight: bold;
-}
-
-/*Hover Style*/
-header a:hover, .info a:hover, .info div:hover, li > div:hover{
-    color: #cccccc;
-    text-decoration: none;
-}
-
-.highlight{
-    color: #FF0000;
-}
-
-.info a{
-    color: #ffffff;
-}
-
-/*Skills*/
-#skills{
-    text-align: center;
-    margin-top: 20px;
-}
-
-#skills h1{
-    margin-bottom: 30px;
-}
-
-#skills h3{
-    margin-bottom: 75px;
-}
-
-/*Offset specifically for the asymmetrical Unity logo, to visually center the <h3> under it.*/
-h3#offset{
-    margin-left: 25px;
-}
-
-/*About page*/
-aside#cinfo{
-    float: right;
-    width: 30%;
-    margin-top: 20px;
-}
-
-aside#cinfo a{
-    position: relative;
-    left: 100px;
-}
-
-article#main-col{
-    float: left;
-    width: 65%;
-    margin-top: 20px;
-}
-
-.info{
-    text-align: left;
-    margin-bottom: 10px;
-}
-
-.photo{
-    float: left;
-    margin: 20px;
-}
-
-#rightnav{
-    height: 100%; 
-    width: 0; /* Change with Javascript later */
-    position: fixed;
-    z-index: 1; /* Force on top layer */
-    top: 0;
-    right: 0;
-    background-color: #111; /* Black */
-    overflow: auto;
-    transition: 0.5s;
-}
-
-#closebtn{
-    position: absolute;
-    top: 10px;
-    right: 30px;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 30px;
-}
-
-/*Projects Nav*/
-#projects{
-    height: 100%; 
-    width: 0; /* Change with Javascript later */
-    position: fixed;
-    z-index: 1; /* Force on top layer */
-    top: 0;
-    right: 0;
-    background-color: #111; /* Black */
-    overflow: auto;
-    transition: 0.5s;
-    text-align: center;
-}
-
-#projects h3{
-    color: #ffffff;
-    padding-top: 300px;
-}
-
-#progList{
-     margin-top: 10%;
-}
-
-.progItems{
-    display: block;
-}
-
-.progItems:nth-child(even){
-    padding: 10px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.progItems:nth-child(odd){
-    background-color: #ffffff;
-    color: #111;
-    padding: 10px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    cursor: pointer;
-}
-/*Footer*/
-footer{
-    margin-top: 20px;
-    padding: 20px;
-    color: #ffffff;
-    border-top: #FF0000 solid 3px;
-    border-bottom: #FF0000 solid 3px;
-    background-color: #35424a;
-    text-align: center;
-}
-
-@media(max-width: 768px){
-    header #branding, 
-    header nav,
-    header nav li,
-    #skills .box,
-    article#main-col,
-    aside#sidebar{
-        float: none;
-        width: 100%;
-    }
-    
-    header{
-        padding-bottom: 20px;
-    }
-    
-    #showcase h1{
-        margin-top: 40px;
-    }
+#test{
+  height: 100vh;
 }

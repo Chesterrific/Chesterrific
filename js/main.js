@@ -1,19 +1,22 @@
-function openNav() {
-    var sidebar = document.getElementById("rightnav");
-    sidebar.style.width = "100%";
-}
+$(document).ready(function () {
 
-function closeNav() {
-    var sidebar = document.getElementById("rightnav");
-    sidebar.style.width = "0%";
-}
+  var quotes = ["quote1", "quote2", "quote3"];
+  var author = ["a1", "a2", "a3"];
 
-function openProjects(){    
-    var sidebar = document.getElementById("projects");
-    sidebar.style.width = "25%";
-}
+  fetchQuote(quotes, author);
 
-function closeProjects(){
-    var sidebar = document.getElementById("projects");
-    sidebar.style.width = "0%";
-}
+  setInterval(function () {
+    $("#quoteBody").fadeOut("slow");
+    
+    setTimeout(function(){
+      fetchQuote(quotes, author);
+    }, 500);
+  }, 4000);
+
+  function fetchQuote(q, a) {
+    quoteNum = Math.floor(Math.random() * quotes.length);
+    $("#quoteBody").text('"' + q[quoteNum] + '"');
+    $("#authorBody").text('-' + a[quoteNum]);
+    $("#quoteBody").fadeIn("slow");
+  }
+});

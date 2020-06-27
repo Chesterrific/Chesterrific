@@ -15,7 +15,7 @@ ul {
   padding: 0;
 }
 
-hr.separator{
+hr.separator {
   border: 1px solid white;
 }
 
@@ -25,11 +25,32 @@ hr.separator{
   background-size: cover;
 }
 
+/* Nav Styling */
+
 .navigation {
-  bottom: 7%;
-  display: flex;
-  flex-direction: column;
+  color: white;
+  font-size: 1.2em;
   position: fixed;
+  z-index: 1;
+}
+
+#top {
+  display: flex;
+  flex-direction: row;
+  right: 2.5%;
+  top: 5%;
+}
+
+#top li {
+  margin: 0 50px 5px 0;
+}
+
+#top li:hover{
+  cursor: pointer;
+}
+
+#bot {
+  bottom: 5%;
   right: 2.5%;
 }
 
@@ -113,7 +134,7 @@ hr.separator{
   opacity: 1;
 }
 
-.infoWrapper{
+.infoWrapper {
   display: flex;
 }
 
@@ -125,7 +146,7 @@ hr.separator{
   margin: 0 5% 0;
 }
 
-.skills{
+.skills {
   height: 40px;
   width: auto;
 }
@@ -140,4 +161,10 @@ hr.separator{
   #transition {
     display: none;
   }
+}
+
+/* Section "about" Styling */
+
+#about {
+  height: 100vh;
 }

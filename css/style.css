@@ -1,251 +1,206 @@
 /* 
     Author     : Chester Guinto
 */
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-    padding: 0;
-    background-color: #f4f4f4;
+
+/* General Page Styling */
+
+body, html {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
 }
 
-/*Carousel Settings*/
-#topCarousel{
-    width: 100%;
-    height: 15%;
-    max-height: 700px;
-    overflow: hidden;
-    border-bottom: #FF0000 3px solid; 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-.carousel-item img{
-    object-fit: cover;
-    width: 100%;
+.parallax {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-/*Global Items*/
-.container{
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+/* Nav Styling */
+
+.navigation {
+  color: white;
+  font-size: 1.2em;
+  position: fixed;
+  z-index: 1;
 }
 
-ul{
-    margin: 0;
-    padding: 0;
+.navigation li a:hover {
+  cursor: pointer;
 }
 
-.dark{
-    padding: 15px;
-    background: #35424a;
-    color: #ffffff;
+#top {
+  display: flex;
+  flex-direction: row;
+  right: 2.5%;
+  top: 5%;
 }
 
-.centered{
-    margin-top: 50%;
-}
-/*----Image Picture Size Settings----*/
-.pics{
-    height: 100px;
-    width: 100px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-/*--------------------------*/
-
-/*Header Items*/
-header{
-    background-color: #35424a;
-    color: #ffffff;
-    padding-top: 30px;
-    min-height: 70px;
-    border-bottom: #FF0000 3px solid;  
+#top li {
+  margin: 0 50px 5px 0;
 }
 
-header a{
-    color: #ffffff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 16px;
+/* #top li:hover{
+  cursor: pointer;
+} */
+
+#bot {
+  bottom: 5%;
+  right: 2.5%;
 }
 
-header li{
-    float: left;
-    display: inline;
-    padding: 0 20px 0 20px;
+/* Section "welcome" Styling */
+
+#welcome {
+  align-items: center;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("../assests/img/showcase.jpg");
+  border-bottom: solid 3px #000000;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.7em;
+  height: 100vh;
+  justify-content: center;
 }
 
-header #branding{
-    float: left;
+#welcome strong {
+  font-size: 2em;
 }
 
-header #branding h1{
-    margin-bottom: 20px;
+/* Section "transition" Styling */
+
+#transition {
+  align-items: center;
+  border-bottom: solid 3px #000000;
+  display: flex;
+  height: 35vh;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 1.5em;
 }
 
-header nav{
-    float: right;
-    margin-top: 10px;
+#quoteBody {
+  max-width: 50vw;
+  text-align: center;
 }
 
-header .highlight, header .current a{
-    color: #FF0000;
-    font-weight: bold;
+#authorBody {
+  margin-left: 30vw;
+  margin-top: 15px;
 }
 
-/*Hover Style*/
-header a:hover, .info a:hover, .info div:hover, li > div:hover{
-    color: #cccccc;
-    text-decoration: none;
+@media screen and (max-width: 600px), screen and (max-height: 550px) {
+  #transition {
+    font-size: 1em;
+  }
 }
 
-.highlight{
-    color: #FF0000;
+@media screen and (max-width: 300px), screen and (max-height: 400px) {
+  #transition {
+    display: none;
+  }
 }
 
-.info a{
-    color: #ffffff;
+/* Section "projects" Styling */
+
+#projects {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url("../assests/img/showcase3.jpg");
+  border-bottom: solid 3px #000000;
+  color: white;
+  height: 110vh;
+  padding-top: 60px;
+  text-align: center;
 }
 
-/*Skills*/
-#skills{
-    text-align: center;
-    margin-top: 20px;
+#projectBox {
+  background-color: #000000;
+  bottom: 5%;
+  height: 80%;
+  margin: auto;
+  padding: 20px;
+  position: relative;
+  opacity: 0.9;
+  overflow: scroll;
+  overflow-x: hidden;
+  text-align: left;
+  top: 5%;
+  width: 90%;
 }
 
-#skills h1{
-    margin-bottom: 30px;
+.projectItem {
+  opacity: 1;
 }
 
-#skills h3{
-    margin-bottom: 75px;
+.infoWrapper {
+  display: flex;
 }
 
-/*Offset specifically for the asymmetrical Unity logo, to visually center the <h3> under it.*/
-h3#offset{
-    margin-left: 25px;
+.infoWrapper p {
+  width: 80%;
 }
 
-/*About page*/
-aside#cinfo{
-    float: right;
-    width: 30%;
-    margin-top: 20px;
+.infoWrapper img {
+  margin: 0 5% 0;
 }
 
-aside#cinfo a{
-    position: relative;
-    left: 100px;
+.skills {
+  height: 40px;
+  width: auto;
 }
 
-article#main-col{
-    float: left;
-    width: 65%;
-    margin-top: 20px;
+hr.separator {
+  border: 1px solid white;
 }
 
-.info{
-    text-align: left;
-    margin-bottom: 10px;
+@media screen and (max-width: 600px), screen and (max-height: 550px) {
+  #projectBox {
+    max-height: 60%;
+  }
 }
 
-.photo{
-    float: left;
-    margin: 20px;
+@media screen and (max-width: 300px), screen and (max-height: 400px) {
+  #transition {
+    display: none;
+  }
 }
 
-#rightnav{
-    height: 100%; 
-    width: 0; /* Change with Javascript later */
-    position: fixed;
-    z-index: 1; /* Force on top layer */
-    top: 0;
-    right: 0;
-    background-color: #111; /* Black */
-    overflow: auto;
-    transition: 0.5s;
+/* Section "about" Styling */
+
+#about {
+  height: 100vh;
+  padding-top: 60px;
+  text-align: center;
 }
 
-#closebtn{
-    position: absolute;
-    top: 10px;
-    right: 30px;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 30px;
+#aboutMe {
+  /* bottom: 5%; */
+  display: flex;
+  flex-direction: column;
+  font-size: 1.4em;
+  margin: auto;
+  position: relative;
+  top: 5%;
+  width: 90%;
 }
 
-/*Projects Nav*/
-#projects{
-    height: 100%; 
-    width: 0; /* Change with Javascript later */
-    position: fixed;
-    z-index: 1; /* Force on top layer */
-    top: 0;
-    right: 0;
-    background-color: #111; /* Black */
-    overflow: auto;
-    transition: 0.5s;
-    text-align: center;
+#links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 200px 0 20px 0;
 }
 
-#projects h3{
-    color: #ffffff;
-    padding-top: 300px;
+.imgContainer{
+  margin: 10px;
 }
 
-#progList{
-     margin-top: 10%;
-}
-
-.progItems{
-    display: block;
-}
-
-.progItems:nth-child(even){
-    padding: 10px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.progItems:nth-child(odd){
-    background-color: #ffffff;
-    color: #111;
-    padding: 10px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    cursor: pointer;
-}
-/*Footer*/
-footer{
-    margin-top: 20px;
-    padding: 20px;
-    color: #ffffff;
-    border-top: #FF0000 solid 3px;
-    border-bottom: #FF0000 solid 3px;
-    background-color: #35424a;
-    text-align: center;
-}
-
-@media(max-width: 768px){
-    header #branding, 
-    header nav,
-    header nav li,
-    #skills .box,
-    article#main-col,
-    aside#sidebar{
-        float: none;
-        width: 100%;
-    }
-    
-    header{
-        padding-bottom: 20px;
-    }
-    
-    #showcase h1{
-        margin-top: 40px;
-    }
+.imgContainer a img{
+  height: 120px;
+  width: 120px;
+  object-fit: contain;
 }

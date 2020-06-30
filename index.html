@@ -1,111 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <meta name='viewport' content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Chester Guinto's personal website">
   <meta name="author" content="Chester Guinto">
-  <title>Chester's Website | Welcome</title>
-  <link rel='stylesheet' href='./css/style.css'>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <title>I'm Chester | Welcome</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <header>
-    <div class='container'>
-      <div id='branding'>
-        <h1><span class="highlight">Chester</span> Guinto</h1>
-      </div>
-      <nav>
-        <ul>
-          <li class='current'><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li>
-            <div style="cursor: pointer" onclick="openProjects()">PROJECTS</div>
+  <ul class="navigation" id="top">
+    <li><a id="projBtn">Projects</a></li>
+    <li><a id="aboutBtn">About</a></li>
+  </ul>
+
+  <main>
+    <section id="welcome" class="parallax">
+      <h3><em>Hey, I'm</em></h3>
+      <strong>CHESTER GUINTO</strong>
+    </section>
+
+    <section id="transition">
+      <div id="quoteBody">test</div>
+      <div id="authorBody">test</div>
+    </section>
+
+    <section id="projects" class="parallax">
+      <h1><strong>PROJECTS</strong></h1>
+      <div id="projectBox">
+        <ul class="projectList">
+          <li class="projectItem">
+            <h3>Unity Tower Defense</h3>
+            <div class="infoWrapper">
+              <p>Basic tower defense game coded in Unity. Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+                et aliquid consequuntur nihil pariatur iste? Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Ipsum, esse.
+              </p>
+              <img src="/assests/img/cpp.png">
+            </div>
+            <h6>Skills</h6>
+            <img class="skills" src="/assests/img/cpp.png">
+            <img class="skills" src="/assests/img/cpp.png">
           </li>
+          <hr class="separator">
+          <li class="projectItem">
+            <h3>Unity Tower Defense</h3>
+            <div class="infoWrapper">
+              <p>Basic tower defense game coded in Unity. Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+                et aliquid consequuntur nihil pariatur iste? Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Ipsum, esse.
+              </p>
+              <img src="/assests/img/cpp.png">
+            </div>
+            <h6>Skills</h6>
+            <img class="skills" src="/assests/img/cpp.png">
+            <img class="skills" src="/assests/img/cpp.png">
+          </li>
+          <hr class="separator">
+          <li class="projectItem">
+            <h3>Unity Tower Defense</h3>
+            <div class="infoWrapper">
+              <p>Basic tower defense game coded in Unity. Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+                et aliquid consequuntur nihil pariatur iste? Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Ipsum, esse.
+              </p>
+              <img src="/assests/img/cpp.png">
+            </div>
+            <h6>Skills</h6>
+            <img class="skills" src="/assests/img/cpp.png">
+            <img class="skills" src="/assests/img/cpp.png">
+          </li>
+          <hr class="separator">
         </ul>
-      </nav>
-    </div>
-  </header>
-
-  <section id="topCarousel">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item">
-          <img src="img/showcase.jpg">
-        </div>
-        <div class="carousel-item active">
-          <img src="img/showcase2.jpg">
-        </div>
-        <div class="carousel-item">
-          <img src="img/showcase3.jpg">
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id='skills'>
-    <div class='container'>
-      <h1>Skills</h1>
-      <div class="row">
-        <div class="box col-12 col-sm-4 col-md-3">
-          <img class="pics" src="./img/cpp.png">
-          <h3>C++</h3>
-        </div>
-        <div class="box col-12 col-sm-4 col-md-3">
-          <img class="pics" src="./img/css.png">
-          <h3>CSS</h3>
-        </div>
-        <div class="box col-12 col-sm-4 col-md-3">
-          <img class="pics" src="./img/html.png">
-          <h3>HTML</h3>
-        </div>
-        <div class="box col-12 col-sm-6 col-md-3">
-          <img class="pics" src="./img/js.png">
-          <h3>JavaScript</h3>
-        </div>
-        <div class="box col-12 col-sm-6 col-md-12">
-          <!change later if I add more skills>
-            <img class="pics" src="./img/unity.png">
-            <h3 id="offset">Unity</h3>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section id="about">
+      <h1><strong>ABOUT</strong> ME</h1>
+      <artice id="aboutMe">
+        <p>My name is Chester Guinto and I'm and IT Professional with around 2 years of experience in
+          the field. I've also got a background in programming and web development that I've been honing through earning
+          my bachelors in Computer Science, as well as taking on free-lance projects from various clients.</p>
 
-  <div id="projects">
-    <a href="javascript:void(0)" id="closebtn" onclick="closeProjects()">&times;</a>
-    <h3>PROJECTS</h3>
-    <ul id="progList">
-      <li class="progItems"><a href="https://chesterrific.github.io/Restaurant-Locator/" target="_blank">Restaurant
-          Locator</a></li>
-      <li class="progItems"><a href="https://github.com/Chesterrific/Boggle" target="_blank">Boggle</a></li>
-      <li class="progItems"><a href="https://github.com/Chesterrific/DiscordBot" target="_blank">Personal Discord
-          Bot</a></li>
-      <li class="progItems"><a href="https://chesterrific.github.io/Tekken7/" target="_blank">Tekken 7 Frame Data (In
-          progress)</a></li>
-      <li class="progItems"><a href="https://github.com/Chesterrific/Tactics-Game" target="_blank">Unity Tactics Style
-          Game (In progress)</a></li>
-      <li class="progItems"><a href="https://chesterrific.github.io/Tower-Defense-v2/Build/index.html" target="_blank">Unity Tower Defense
-          Game (In progress)</a></li>
-    </ul>
-  </div>
+        <p> From working through tickets, managing client systems, managing networking infrastructure, troubleshooting,
+          and resolving issues, I've built up strong skill sets for handling any situation that may come my way for any
+          platform; Windows, Mac-OS, or Linux!</p>
 
-  <footer>
-    <p>Chester Guinto 2020</p>
-  </footer>
+        <p>Along side that, I've also been jumping at the opportunities to flex my coding muscles! Maintaining the
+          company's main website, updating and developing applications for client projects, and taking on free-lance
+          development work. I've been doing my best to try and take the next step into the development field.</p>
+      </artice>
+      <aside id="links">
+        <div class="imgContainer">
+          <a href="https://github.com/Chesterrific" id="github" target="_blank"><img
+              src="/assests/img/GitHub-Mark-120px-plus.png"></a>
+        </div>
+        <div class="imgContainer">
+          <a href="https://www.linkedin.com/in/chesterguinto/" id="linkedIn" target="_blank"><img
+              src="/assests/img/LI-In-Bug.png"></a>
+        </div>
+      </aside>
+    </section>
+  </main>
+  <ul class="navigation" id="bot">
+    <li><a id="backBtn">Back To Top</a></li>
+  </ul>
 
+  <!-- Script links -->
   <script src="js/main.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  <script src="js/nav.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
 </body>
 

@@ -15,10 +15,6 @@ ul {
   padding: 0;
 }
 
-hr.separator {
-  border: 1px solid white;
-}
-
 .parallax {
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -34,6 +30,10 @@ hr.separator {
   z-index: 1;
 }
 
+.navigation li a:hover {
+  cursor: pointer;
+}
+
 #top {
   display: flex;
   flex-direction: row;
@@ -45,9 +45,9 @@ hr.separator {
   margin: 0 50px 5px 0;
 }
 
-#top li:hover{
+/* #top li:hover{
   cursor: pointer;
-}
+} */
 
 #bot {
   bottom: 5%;
@@ -110,14 +110,16 @@ hr.separator {
 
 #projects {
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url("../assests/img/showcase3.jpg");
+  border-bottom: solid 3px #000000;
   color: white;
-  height: 100vh;
+  height: 110vh;
   padding-top: 60px;
   text-align: center;
 }
 
 #projectBox {
   background-color: #000000;
+  bottom: 5%;
   height: 80%;
   margin: auto;
   padding: 20px;
@@ -126,7 +128,7 @@ hr.separator {
   overflow: scroll;
   overflow-x: hidden;
   text-align: left;
-  top: 10%;
+  top: 5%;
   width: 90%;
 }
 
@@ -151,6 +153,10 @@ hr.separator {
   width: auto;
 }
 
+hr.separator {
+  border: 1px solid white;
+}
+
 @media screen and (max-width: 600px), screen and (max-height: 550px) {
   #projectBox {
     max-height: 60%;
@@ -167,4 +173,34 @@ hr.separator {
 
 #about {
   height: 100vh;
+  padding-top: 60px;
+  text-align: center;
+}
+
+#aboutMe {
+  /* bottom: 5%; */
+  display: flex;
+  flex-direction: column;
+  font-size: 1.4em;
+  margin: auto;
+  position: relative;
+  top: 5%;
+  width: 90%;
+}
+
+#links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 200px 0 20px 0;
+}
+
+.imgContainer{
+  margin: 10px;
+}
+
+.imgContainer a img{
+  height: 120px;
+  width: 120px;
+  object-fit: contain;
 }

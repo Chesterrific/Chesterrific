@@ -151,7 +151,8 @@ ul {
 .infoWrapper img {
   height: 250px;
   margin: 0 5% 0;
-  width: auto;
+  object-fit: contain;
+  width: 350px;
 }
 
 .skills {

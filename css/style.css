@@ -7,6 +7,7 @@
 body, html {
   font-family: 'Roboto', sans-serif;
   margin: 0;
+  min-width: 360px;
 }
 
 ul {
@@ -22,6 +23,12 @@ ul {
 }
 
 /* Nav Styling */
+
+@media only screen and (max-width: 1199px) {
+  .navigation {
+    visibility: hidden;
+  }
+}
 
 .navigation {
   color: white;
@@ -45,10 +52,6 @@ ul {
   margin: 0 50px 5px 0;
 }
 
-/* #top li:hover{
-  cursor: pointer;
-} */
-
 #bot {
   bottom: 5%;
   right: 2.5%;
@@ -66,6 +69,7 @@ ul {
   font-size: 1.7em;
   height: 100vh;
   justify-content: center;
+  text-align: center;
 }
 
 #welcome strong {
@@ -94,15 +98,15 @@ ul {
   margin-top: 15px;
 }
 
-@media screen and (max-width: 600px), screen and (max-height: 550px) {
+@media screen and (max-height: 400px) {
   #transition {
-    font-size: 1em;
+    display: none;
   }
 }
 
-@media screen and (max-width: 300px), screen and (max-height: 400px) {
+@media screen and (max-width: 600px), screen and (max-height: 550px) {
   #transition {
-    display: none;
+    font-size: 1em;
   }
 }
 
@@ -131,7 +135,7 @@ ul {
   width: 90%;
 }
 
-.projectList a:hover{
+.projectList a:hover {
   text-decoration: none;
 }
 
@@ -140,8 +144,19 @@ ul {
 }
 
 .infoWrapper {
-  margin-top: 2%;
   display: flex;
+  margin-top: 2%;
+}
+
+@media only screen and (max-width: 1199px) {
+  .infoWrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .infoWrapper p{
+    margin: 50px 0;
+  }
 }
 
 .infoWrapper p {
@@ -150,7 +165,7 @@ ul {
 
 .infoWrapper img {
   height: 250px;
-  margin: 0 5% 0;
+  margin: 0 5%;
   object-fit: contain;
   width: 350px;
 }
@@ -185,7 +200,6 @@ hr.separator {
 }
 
 #aboutMe {
-  /* bottom: 5%; */
   display: flex;
   flex-direction: column;
   font-size: 1.4em;
@@ -199,14 +213,15 @@ hr.separator {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 200px 0 20px 0;
+  position: relative;
+  top: 40%;
 }
 
-.imgContainer{
+.imgContainer {
   margin: 10px;
 }
 
-.imgContainer a img{
+.imgContainer a img {
   height: 120px;
   width: 120px;
   object-fit: contain;

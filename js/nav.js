@@ -49,8 +49,6 @@ $(document).ready(function () {
     }
   });
 
-
-
   // Function Bindings
   $("#projBtn").click(function () {
     $('html, body').animate({
